@@ -3,7 +3,8 @@ import { StyleSheet, Text, View } from 'react-native';
 import { HomeScreen } from './app/screens/homescreen';
 import { ProfileScreen } from './app/screens/profilescreen';
 import { ExploreScreen } from './app/screens/explorescreen';
-import { SignUpScreen } from './app/screens/signupscreeen';
+import { SignInScreen } from './app/screens/signinscreeen';
+import { FirstPage } from './app/screens/firstpage';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { NavigationContainer } from '@react-navigation/native';
 
@@ -14,7 +15,8 @@ export default function App() {
     <NavigationContainer>
       {/* menghilangkan header top */}
       <Stack.Navigator screenOptions={{headerShown: false}}>
-        <Stack.Screen name='signup' component={SignUpScreen} />
+        <Stack.Screen name='firstPage' component={FirstPage} />
+        <Stack.Screen name='Signin' component={SignInScreen} />
         <Stack.Screen name="Home" component={HomeScreen} />
         <Stack.Screen name="Explore" component={ExploreScreen} />
         <Stack.Screen name="Profile" component={ProfileScreen} />

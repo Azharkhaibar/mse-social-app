@@ -1,14 +1,16 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { View, SafeAreaView, Text, TouchableOpacity, TextInput, Image, StyleSheet } from "react-native";
 import { useNavigation } from "@react-navigation/native";
-export const SignUpScreen = () => {
-    const [ fullnameUser, setFullnameUser ] = useState('');
-    const [ emailUser, setEmailUser ] = useState('');
-    const [ passwordUser, setPasswordUser ] = useState('');
-    const NavigationHomeScreen = useNavigation();
-    const HandleNavigationToHomeScreen = () => {
-        NavigationHomeScreen.navigate('Home')
-    }
+
+export const SignInScreen = () => {
+  const [emailUser, setEmailUser] = useState("");
+  const [passwordUser, setPasswordUser] = useState("");
+  const NavigationHomeScreen = useNavigation();
+
+  const HandleNavigationToHomeScreen = () => {
+    NavigationHomeScreen.navigate("Home");
+  };
+
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.logoContainer}>
@@ -18,10 +20,10 @@ export const SignUpScreen = () => {
         <TextInput style={styles.input} placeholder="Email" placeholderTextColor="#666" keyboardType="email-address" value={emailUser} onChangeText={setEmailUser} />
         <TextInput style={styles.input} placeholder="Password" placeholderTextColor="#666" value={passwordUser} onChangeText={setPasswordUser} secureTextEntry />
         <TouchableOpacity style={styles.button} onPress={HandleNavigationToHomeScreen}>
-          <Text style={styles.buttonText}>Sign In</Text>
+          <Text style={styles.buttonText}>LOGIN</Text>
         </TouchableOpacity>
       </View>
-      <TouchableOpacity style={styles.loginContainer} >
+      <TouchableOpacity style={styles.loginContainer}>
         <Text style={styles.loginText}>
           Don't have an account? <Text style={styles.loginTextBold}>Sign Up</Text>
         </Text>
@@ -30,38 +32,44 @@ export const SignUpScreen = () => {
   );
 };
 
-const styles = StyleSheet.create({
+export const styles = StyleSheet.create({
   container: {
     flex: 1,
-    paddingHorizontal: 20,
+    backgroundColor: "#1C1C1C",
+    padding: 20,
     justifyContent: "center",
+    alignItems: "center",
   },
   logoContainer: {
     alignItems: "center",
     marginBottom: 10,
+    marginTop: 20,
   },
   logo: {
-    width: 200,
-    height: 200,
-    backgroundColor: 'transparent',
-    
+    width: 180,
+    height: 180,
+    backgroundColor: "transparent",
   },
   formContainer: {
+    width: "100%",
     borderRadius: 10,
     padding: 15,
   },
   input: {
-    borderRadius: 5,
+    borderRadius: 1,
     padding: 15,
     marginBottom: 15,
-    borderColor: "#ddd",
+    borderBottomColor: "#white",
     borderWidth: 1,
+    backgroundColor: "transparent",
+    color: "#000",
   },
   button: {
-    backgroundColor: "#3aa6b9",
+    backgroundColor: "black",
     padding: 15,
-    borderRadius: 25,
+    borderRadius: 5,
     alignItems: "center",
+    marginBottom: 10,
   },
   buttonText: {
     color: "#fff",
@@ -73,11 +81,19 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   loginText: {
-    color: "#666",
+    color: "white",
   },
   loginTextBold: {
     color: "#3498db",
     fontWeight: "bold",
   },
+  backContainer: {
+    marginTop: 20,
+    alignItems: "center",
+  },
+  backText: {
+    color: "white",
+    fontSize: 16,
+    fontWeight: "bold",
+  },
 });
-
