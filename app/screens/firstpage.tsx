@@ -43,7 +43,7 @@ const styles = StyleSheet.create({
   logoWrapper: {
     alignItems: "center",
     padding: 20,
-    marginBottom: 30,
+    marginBottom: 10,
     marginTop: 135,
   },
   logo: {
@@ -111,4 +111,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default FirstPage;
+

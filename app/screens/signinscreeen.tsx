@@ -59,10 +59,13 @@ export const styles = StyleSheet.create({
     borderRadius: 1,
     padding: 15,
     marginBottom: 15,
-    borderBottomColor: "#white",
+    borderBottomColor: 'white',
     borderWidth: 1,
     backgroundColor: "transparent",
     color: "#000",
+  },
+  textInput: {
+    color: 'white'
   },
   button: {
     backgroundColor: "black",
