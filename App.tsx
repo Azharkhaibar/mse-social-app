@@ -13,10 +13,11 @@ const Stack = createNativeStackNavigator();
 export default function App() {
   return (
     <NavigationContainer>
-      {/* menghilangkan header top */}
-      <Stack.Navigator screenOptions={{headerShown: false}}>
-        <Stack.Screen name='firstPage' component={FirstPage} />
-        <Stack.Screen name='Signin' component={SignInScreen} />
+      {/* STATUS BAR ATAS */}
+      <StatusBar style="light" backgroundColor='black' />
+      <Stack.Navigator screenOptions={{ headerShown: false }}>
+        <Stack.Screen name="firstPage" component={FirstPage} />
+        <Stack.Screen name="Signin" component={SignInScreen} />
         <Stack.Screen name="Home" component={HomeScreen} />
         <Stack.Screen name="Explore" component={ExploreScreen} />
         <Stack.Screen name="Profile" component={ProfileScreen} />

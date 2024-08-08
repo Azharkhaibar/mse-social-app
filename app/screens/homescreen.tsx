@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import { View, Text, SafeAreaView, ScrollView, Image, StyleSheet, TouchableHighlight } from "react-native";
+import { View, Text, SafeAreaView, ScrollView, Image, StyleSheet, TouchableOpacity } from "react-native";
 import Icon from "react-native-vector-icons/MaterialCommunityIcons";
-import { StoriesIMG, ImgScrollHome, PostOne, PostTwo, ImgScrollHome2 } from "../data/homedata";
-
+import { FirstAds, StoriesIMG, PostOne, PostTwo, ImgScrollHome3, ImgScrollHome, ImgScrollHome2 } from "../data/homedata";
+import { styles } from "./design/homestyle";
 export const HomeScreen = () => {
   const [activeButtonTouchableUser, setActiveButtonTouchableUser] = useState({
     like: false,
@@ -19,19 +19,26 @@ export const HomeScreen = () => {
 
   const renderPosts = (posts) =>
     posts.map((post, index) => (
-      <View key={index} style={{ marginTop: 15 }}>
-        <Image source={post.ImageStoriesOne} style={{ objectFit: "cover", height: 200, width: 300 }} />
+      <View key={index} style={styles.postImageContainer}>
+        <Image source={post.ImageStoriesOne} style={styles.postImage} />
+      </View>
+    ));
+
+  const renderAds = (posts) =>
+    posts.map((post, index) => (
+      <View key={index} style={styles.adContainer}>
+        <Image source={post.Ads} style={styles.adImage} />
       </View>
     ));
 
   const renderPostHeader = (imgSrc, userName, timeAgo) => (
-    <View style={{ padding: 20, display: "flex", flexDirection: "row", alignItems: "center" }}>
-      <Image source={imgSrc} style={{ width: 50, height: 50, borderRadius: 50 }} />
-      <View style={{ marginLeft: 10, marginTop: 5, gap: 5 }}>
-        <Text style={{ fontSize: 16, color: "white", fontWeight: "bold" }}>{userName}</Text>
-        <Text style={{ opacity: 0.5, color: "white" }}>{timeAgo}</Text>
+    <View style={styles.postHeader}>
+      <Image source={imgSrc} style={styles.userImage} />
+      <View style={styles.userInfo}>
+        <Text style={styles.userName}>{userName}</Text>
+        <Text style={styles.timeAgo}>{timeAgo}</Text>
       </View>
-      <Icon name="share" size={24} color="white" style={{ marginLeft: 150, opacity: 0.5 }} />
+      <Icon name="share" size={24} color="white" style={styles.shareIcon} />
     </View>
   );
 
@@ -42,21 +49,18 @@ export const HomeScreen = () => {
         const color = isActive ? (action === "like" ? "red" : action === "comment" ? "blue" : "green") : "white";
 
         return (
-          <TouchableHighlight key={action} style={styles.actionButton} onPress={() => handlePressTchUser(action)} underlayColor="transparent">
-            <>
-              <Icon name={action === "like" ? "thumb-up" : action === "comment" ? "comment" : "share"} size={15} color={color} />
-              <Text style={{ color, marginLeft: 5 }}>{action}</Text>
-            </>
-          </TouchableHighlight>
+          <TouchableOpacity key={action} style={styles.actionButton} onPress={() => handlePressTchUser(action)}>
+            <Icon name={action === "like" ? "thumb-up" : action === "comment" ? "comment" : "share"} size={20} color={color} />
+            <Text style={[styles.actionText, { color }]}>{action}</Text>
+          </TouchableOpacity>
         );
       })}
     </View>
   );
 
-
   return (
-    <SafeAreaView>
-      <ScrollView style={{ backgroundColor: "#1C1C1C" }}>
+    <SafeAreaView style={styles.container}>
+      <ScrollView style={styles.scrollView}>
         <View style={styles.header}>
           <Text style={styles.headerText}>Keezars</Text>
           <View style={styles.iconContainer}>
@@ -75,118 +79,65 @@ export const HomeScreen = () => {
           ))}
         </ScrollView>
 
-        <ScrollView showsVerticalScrollIndicator={true}>
-          <View style={{ height: "auto" }}>
-            {renderPostHeader(ImgScrollHome.imgScroll, "Azhar Khaibar", "3 Minutes ago")}
-            <View style={{ height: "auto", paddingHorizontal: 20 }}>
-              <Text style={{ color: "white" }}>s simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,</Text>
-              <ScrollView horizontal showsHorizontalScrollIndicator={false}>
-                {renderPosts(PostOne)}
-              </ScrollView>
-              <View style={{ display: "flex", flexDirection: "row", justifyContent: "space-between", marginTop: 15 }}>
-                <View style={{ flexDirection: "row", alignItems: "center" }}>
-                  <Icon name="thumb-up" size={20} color="white" />
-                  <Text style={{ marginLeft: 10, color: "white" }}>2 Likes</Text>
-                </View>
-                <View style={{ display: "flex", flexDirection: "row" }}>
-                  <Text style={{ color: "white", marginRight: 10 }}>140</Text>
-                  <Text style={{ color: "white" }}>Commented</Text>
-                </View>
+        <View style={styles.postsContainer}>
+          {renderPostHeader(ImgScrollHome.imgScroll, "Azhar Khaibar", "3 Minutes ago")}
+          <View style={styles.postContent}>
+            <Text style={styles.postText}>s simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,</Text>
+            <ScrollView horizontal showsHorizontalScrollIndicator={false}>
+              {renderPosts(PostOne)}
+            </ScrollView>
+            <View style={styles.postFooter}>
+              <View style={styles.likesContainer}>
+                <Icon name="thumb-up" size={20} color="white" />
+                <Text style={styles.likesText}>2 Likes</Text>
               </View>
-              {renderActions()}
-            </View>
-
-            {renderPostHeader(ImgScrollHome2.imgScroll, "Adinda Safira  ", "3 Minutes ago")}
-            <View style={{ height: "auto", paddingHorizontal: 20 }}>
-              <Text style={{ color: "white" }}>s simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,</Text>
-              <ScrollView horizontal showsHorizontalScrollIndicator={false}>
-                {renderPosts(PostTwo)}
-              </ScrollView>
-              <View style={{ display: "flex", flexDirection: "row", justifyContent: "space-between", marginTop: 15 }}>
-                <View style={{ flexDirection: "row", alignItems: "center" }}>
-                  <Icon name="thumb-up" size={20} color="white" />
-                  <Text style={{ marginLeft: 10, color: "white" }}>2 Likes</Text>
-                </View>
-                <View style={{ display: "flex", flexDirection: "row" }}>
-                  <Text style={{ color: "white", marginRight: 10 }}>140</Text>
-                  <Text style={{ color: "white" }}>Commented</Text>
-                </View>
+              <View style={styles.commentsContainer}>
+                <Text style={styles.commentsCount}>140</Text>
+                <Text style={styles.commentsText}>Commented</Text>
               </View>
-              {renderActions()}
             </View>
+            {renderActions()}
           </View>
-        </ScrollView>
+
+          {renderPostHeader(ImgScrollHome2.imgScroll, "Adinda Safira", "3 Minutes ago")}
+          <View style={styles.postContent}>
+            <Text style={styles.postText}>s simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,</Text>
+            <ScrollView horizontal showsHorizontalScrollIndicator={false}>
+              {renderPosts(PostTwo)}
+            </ScrollView>
+            <View style={styles.postFooter}>
+              <View style={styles.likesContainer}>
+                <Icon name="thumb-up" size={20} color="white" />
+                <Text style={styles.likesText}>2 Likes</Text>
+              </View>
+              <View style={styles.commentsContainer}>
+                <Text style={styles.commentsCount}>140</Text>
+                <Text style={styles.commentsText}>Commented</Text>
+              </View>
+            </View>
+            {renderActions()}
+          </View>
+
+          {renderPostHeader(ImgScrollHome2.imgScroll, "Adinda Safira", "3 Minutes ago")}
+          <View style={styles.postContent}>
+            <Text style={styles.postText}>s simply dummy text of the printing and typesetting industry...</Text>
+            <ScrollView horizontal showsHorizontalScrollIndicator={false}>
+              {renderAds(FirstAds)}
+            </ScrollView>
+            <View style={styles.postFooter}>
+              <View style={styles.likesContainer}>
+                <Icon name="thumb-up" size={20} color="white" />
+                <Text style={styles.likesText}>2 Likes</Text>
+              </View>
+              <View style={styles.commentsContainer}>
+                <Text style={styles.commentsCount}>140</Text>
+                <Text style={styles.commentsText}>Commented</Text>
+              </View>
+            </View>
+            {renderActions()}
+          </View>
+        </View>
       </ScrollView>
     </SafeAreaView>
   );
 };
-
-const styles = StyleSheet.create({
-  header: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-    alignItems: "center",
-    marginTop: 40,
-    height: 50,
-    paddingHorizontal: 20,
-  },
-  headerText: {
-    fontSize: 22,
-    fontWeight: "bold",
-    color: "white",
-  },
-  iconContainer: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-    width: 120,
-  },
-  containerStories: {
-    flexDirection: "row",
-    paddingVertical: 10,
-    paddingHorizontal: 10,
-  },
-  storyItem: {
-    alignItems: "center",
-    marginRight: 15,
-    padding: 10,
-  },
-  storiesImg: {
-    width: 70,
-    height: 70,
-    borderRadius: 50,
-  },
-  storyText: {
-    marginTop: 10,
-    fontSize: 12,
-    color: "white",
-    textAlign: "center",
-  },
-  actionsContainer: {
-    height: 50,
-    flexDirection: "row",
-    justifyContent: "center",
-    paddingHorizontal: 10,
-    marginTop: 10,
-    gap: 10,
-  },
-  actionButton: {
-    height: 40,
-    width: 110,
-    backgroundColor: "transparent",
-    borderColor: "#F6F5F2",
-    borderWidth: 2,
-    borderRadius: 20,
-    alignItems: "center",
-    justifyContent: "center",
-    flexDirection: "row",
-  },
-  actionContent: {
-    flexDirection: "row",
-    alignItems: "center",
-  },
-  actionText: {
-    marginLeft: 5,
-    fontSize: 14,
-    textAlignVertical: "center",
-  },
-});

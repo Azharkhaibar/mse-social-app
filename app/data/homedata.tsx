@@ -62,6 +62,11 @@ export const ImgScrollHome2 = {
   imgScroll: require("../images/post/cewe.jpg"),
 };
 
+export const ImgScrollHome3 = {
+  imgScroll: require("../images/post/iklan 1.jpg"),
+};
+
+
 export const PostOne = [
   {
     id: 1,
@@ -87,3 +92,10 @@ export const PostTwo = [
     ImageStoriesOne: require("../images/post/a2.jpg"),
   },
 ];
+
+export const FirstAds = [
+  {
+    id: 1,
+    Ads: require('../images/post/iklan 1.jpg')
+  }
+]

@@ -56,16 +56,13 @@ export const styles = StyleSheet.create({
     padding: 15,
   },
   input: {
-    borderRadius: 1,
+    borderRadius: 5,
     padding: 15,
     marginBottom: 15,
-    borderBottomColor: 'white',
+    borderBottomColor: "white",
     borderWidth: 1,
     backgroundColor: "transparent",
-    color: "#000",
-  },
-  textInput: {
-    color: 'white'
+    color: "white", // Mengatur warna teks input menjadi putih
   },
   button: {
     backgroundColor: "black",
