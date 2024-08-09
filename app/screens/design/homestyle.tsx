@@ -2,6 +2,7 @@ import { StyleSheet } from "react-native";
 export const styles = StyleSheet.create({
   container: {
     flex: 1,
+    marginTop: 20,
     backgroundColor: "#1C1C1C",
   },
   scrollView: {
@@ -33,12 +34,11 @@ export const styles = StyleSheet.create({
   postImage: {
     width: 300,
     height: 300,
-    objectFit: 'cover'
   },
   storyItem: {
     alignItems: "center",
     marginRight: 15,
-    padding: 10,
+    padding: 7,
   },
   storiesImg: {
     width: 70,

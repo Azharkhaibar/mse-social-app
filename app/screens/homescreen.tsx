@@ -3,7 +3,9 @@ import { View, Text, SafeAreaView, ScrollView, Image, StyleSheet, TouchableOpaci
 import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 import { FirstAds, StoriesIMG, PostOne, PostTwo, ImgScrollHome3, ImgScrollHome, ImgScrollHome2 } from "../data/homedata";
 import { styles } from "./design/homestyle";
+import { useNavigation } from "@react-navigation/native";
 export const HomeScreen = () => {
+  const NavigationToSearchPage = useNavigation();
   const [activeButtonTouchableUser, setActiveButtonTouchableUser] = useState({
     like: false,
     comment: false,
@@ -16,6 +18,10 @@ export const HomeScreen = () => {
       [buttonName]: !prevState[buttonName],
     }));
   };
+
+  const HandleNavigateSearch = () => {
+    NavigationToSearchPage.navigate('Explore');
+  }
 
   const renderPosts = (posts) =>
     posts.map((post, index) => (
@@ -66,7 +72,7 @@ export const HomeScreen = () => {
           <View style={styles.iconContainer}>
             <Icon name="chat" size={25} color="white" />
             <Icon name="bell" size={25} color="white" />
-            <Icon name="plus-circle" size={25} color="white" />
+            <Icon name="search" size={25} color="white" onPress={HandleNavigateSearch} />
           </View>
         </View>
 

@@ -14,12 +14,28 @@ export default function App() {
   return (
     <NavigationContainer>
       {/* STATUS BAR ATAS */}
-      <StatusBar style="light" backgroundColor='black' />
+      <StatusBar style="light" backgroundColor="black" />
       <Stack.Navigator screenOptions={{ headerShown: false }}>
         <Stack.Screen name="firstPage" component={FirstPage} />
         <Stack.Screen name="Signin" component={SignInScreen} />
         <Stack.Screen name="Home" component={HomeScreen} />
-        <Stack.Screen name="Explore" component={ExploreScreen} />
+        <Stack.Screen
+          name="Explore"
+          component={ExploreScreen}
+          options={{
+            headerShown: true,
+            title: "Explore",
+            headerStyle: {
+              backgroundColor: "#1C1C1C",
+            },
+            headerTintColor: "white",
+            headerTitleStyle: {
+              fontWeight: "bold",
+              fontSize: 20,
+            },
+            headerTitleAlign: "center",
+          }}
+        />
         <Stack.Screen name="Profile" component={ProfileScreen} />
       </Stack.Navigator>
     </NavigationContainer>
