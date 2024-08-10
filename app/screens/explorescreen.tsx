@@ -1,6 +1,35 @@
 import React from "react";
-import { View, SafeAreaView, ScrollView, StyleSheet, TextInput } from "react-native";
+import { View, Text, SafeAreaView, ScrollView, StyleSheet, TextInput, TouchableHighlight, Image } from "react-native";
 import Icon from "react-native-vector-icons/MaterialCommunityIcons";
+import { stackPhoto } from "../data/homedata";
+
+// Komponen Filter Button
+const BtnFilter = ({ text }) => {
+  return (
+    <TouchableHighlight
+      style={styles.filterButton}
+      onPress={() => {
+        console.log(`${text} button pressed`);
+      }}
+      underlayColor="#444"
+    >
+      <Text style={styles.filterButtonText}>{text}</Text>
+    </TouchableHighlight>
+  );
+};
+
+// Komponen StackPhotoExplore (Grid View)
+const StackPhotoExplore = () => {
+  return (
+    <View style={styles.photoGrid}>
+      {stackPhoto.map((stack, index) => (
+        <View key={index} style={styles.photoItem}>
+          <Image source={stack.stackPhoto} style={styles.photo} />
+        </View>
+      ))}
+    </View>
+  );
+};
 
 export const ExploreScreen = () => {
   return (
@@ -10,33 +39,40 @@ export const ExploreScreen = () => {
           <Icon name="magnify" size={25} color="#fff" style={styles.searchIcon} />
           <TextInput style={styles.searchInput} placeholder="Search..." placeholderTextColor="#bbb" selectionColor="#fff" />
         </View>
-        <View></View>
+        <ScrollView horizontal showsHorizontalScrollIndicator={false}>
+          <View style={styles.filterContainer}>
+            <BtnFilter text="All" />
+            <BtnFilter text="Popular" />
+            <BtnFilter text="Entertainment" />
+            <BtnFilter text="Technology" />
+            <BtnFilter text="Sports" />
+            <BtnFilter text="Staycation" />
+            <BtnFilter text="Girlfriend" />
+          </View>
+        </ScrollView>
+        <StackPhotoExplore />
       </ScrollView>
     </SafeAreaView>
   );
 };
 
-export const styles = StyleSheet.create({
+const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#1C1C1C",
+    backgroundColor: "#000",
   },
   containerWrapper: {
-    flex: 1,
+    paddingHorizontal: 15,
   },
   searchContainer: {
     flexDirection: "row",
     alignItems: "center",
-    backgroundColor: "#444",
-    borderRadius: 28,
-    paddingVertical: 12,
-    paddingHorizontal: 15,
-    margin: 20,
-    shadowColor: "#000",
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.25,
-    shadowRadius: 3.84,
-    elevation: 5, // For Android shadow
+    backgroundColor: "#333",
+    borderRadius: 8,
+    marginVertical: 15,
+    padding: 10,
+    marginTop: 20,
+    marginBottom: 5
   },
   searchIcon: {
     marginRight: 10,
@@ -44,7 +80,36 @@ export const styles = StyleSheet.create({
   searchInput: {
     flex: 1,
     color: "#fff",
-    fontSize: 16,
-    padding: 0,
+  },
+  filterContainer: {
+    flexDirection: "row",
+    alignItems: "center",
+    marginVertical: 15,
+  },
+  filterButton: {
+    backgroundColor: "#444",
+    paddingVertical: 8,
+    paddingHorizontal: 15,
+    borderRadius: 20,
+    marginRight: 10,
+  },
+  filterButtonText: {
+    color: "#fff",
+    fontWeight: "bold",
+  },
+  photoGrid: {
+    flexDirection: "row",
+    flexWrap: "wrap",
+    justifyContent: "space-between",
+    marginTop: 7
+  },
+  photoItem: {
+    width: "32%", 
+    aspectRatio: 1,
+    marginBottom: 5,
+  },
+  photo: {
+    width: "100%",
+    height: "100%",
   },
 });

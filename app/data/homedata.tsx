@@ -99,3 +99,130 @@ export const FirstAds = [
     Ads: require('../images/post/iklan 1.jpg')
   }
 ]
+
+export const stackPhoto = [
+  {
+    id: 1,
+    stackPhoto: require("../images/Stackpoto/12d0cd704833e15b3d2478af9a709d93.jpg"),
+  },
+  {
+    id: 2,
+    stackPhoto: require("../images/Stackpoto/19f37a3cc0abc5c145274985a4a14a51.jpg"),
+  },
+  {
+    id: 3,
+    stackPhoto: require("../images/Stackpoto/3914db76b6a5711ede12c7210364007b.jpg"),
+  },
+  {
+    id: 4,
+    stackPhoto: require("../images/Stackpoto/3c6e499eedf2eee062a3f0cc095e11a7.jpg"),
+  },
+  {
+    id: 5,
+    stackPhoto: require("../images/Stackpoto/5771e5d5f149f12e0cc52117100b52fd.jpg"),
+  },
+  {
+    id: 6,
+    stackPhoto: require("../images/Stackpoto/a2.jpg"),
+  },
+  {
+    id: 7,
+    stackPhoto: require("../images/Stackpoto/b82c096676e7d653fac80b8695711bfb.jpg"),
+  },
+  {
+    id: 8,
+    stackPhoto: require("../images/Stackpoto/cewe.jpg"),
+  },
+  {
+    id: 9,
+    stackPhoto: require("../images/Stackpoto/cewe2.jpg"),
+  },
+  {
+    id: 10,
+    stackPhoto: require("../images/Stackpoto/12d0cd704833e15b3d2478af9a709d93.jpg"),
+  },
+  {
+    id: 11,
+    stackPhoto: require("../images/Stackpoto/19f37a3cc0abc5c145274985a4a14a51.jpg"),
+  },
+  {
+    id: 12,
+    stackPhoto: require("../images/Stackpoto/3914db76b6a5711ede12c7210364007b.jpg"),
+  },
+  {
+    id: 13,
+    stackPhoto: require("../images/Stackpoto/3c6e499eedf2eee062a3f0cc095e11a7.jpg"),
+  },
+  {
+    id: 14,
+    stackPhoto: require("../images/Stackpoto/5771e5d5f149f12e0cc52117100b52fd.jpg"),
+  },
+  {
+    id: 15,
+    stackPhoto: require("../images/Stackpoto/a2.jpg"),
+  },
+  {
+    id: 16,
+    stackPhoto: require("../images/Stackpoto/b82c096676e7d653fac80b8695711bfb.jpg"),
+  },
+  {
+    id: 17,
+    stackPhoto: require("../images/Stackpoto/cewe.jpg"),
+  },
+  {
+    id: 18,
+    stackPhoto: require("../images/Stackpoto/cewe2.jpg"),
+  },
+  {
+    id: 19,
+    stackPhoto: require("../images/Stackpoto/12d0cd704833e15b3d2478af9a709d93.jpg"),
+  },
+  {
+    id: 20,
+    stackPhoto: require("../images/Stackpoto/19f37a3cc0abc5c145274985a4a14a51.jpg"),
+  },
+  {
+    id: 21,
+    stackPhoto: require("../images/Stackpoto/12d0cd704833e15b3d2478af9a709d93.jpg"),
+  },
+  {
+    id: 22,
+    stackPhoto: require("../images/Stackpoto/19f37a3cc0abc5c145274985a4a14a51.jpg"),
+  },
+  {
+    id: 23,
+    stackPhoto: require("../images/Stackpoto/3914db76b6a5711ede12c7210364007b.jpg"),
+  },
+  {
+    id: 24,
+    stackPhoto: require("../images/Stackpoto/3c6e499eedf2eee062a3f0cc095e11a7.jpg"),
+  },
+  {
+    id: 25,
+    stackPhoto: require("../images/Stackpoto/5771e5d5f149f12e0cc52117100b52fd.jpg"),
+  },
+  {
+    id: 26,
+    stackPhoto: require("../images/Stackpoto/a2.jpg"),
+  },
+  {
+    id: 27,
+    stackPhoto: require("../images/Stackpoto/b82c096676e7d653fac80b8695711bfb.jpg"),
+  },
+  {
+    id: 28,
+    stackPhoto: require("../images/Stackpoto/cewe.jpg"),
+  },
+  {
+    id: 29,
+    stackPhoto: require("../images/Stackpoto/cewe2.jpg"),
+  },
+  {
+    id: 30,
+    stackPhoto: require("../images/Stackpoto/12d0cd704833e15b3d2478af9a709d93.jpg"),
+  },
+  {
+    id: 31,
+    stackPhoto: require("../images/Stackpoto/19f37a3cc0abc5c145274985a4a14a51.jpg"),
+  },
+];
