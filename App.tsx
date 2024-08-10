@@ -7,6 +7,7 @@ import { SignInScreen } from './app/screens/signinscreeen';
 import { FirstPage } from './app/screens/firstpage';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { NavigationContainer } from '@react-navigation/native';
+import { ChatScreen } from './app/screens/chatscreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -34,6 +35,23 @@ export default function App() {
               fontSize: 20,
             },
             headerTitleAlign: "center",
+          }}
+        />
+        <Stack.Screen
+          name="Messages"
+          component={ChatScreen}
+          options={{
+            headerShown: true,
+            title: "Chat",
+            headerStyle: {
+              backgroundColor: "#1C1C1C",
+            },
+            headerTintColor: "white",
+            headerTitleStyle: {
+              fontWeight: "bold",
+              fontSize: 20,
+            },
+            headerTitleAlign: 'left'
           }}
         />
         <Stack.Screen name="Profile" component={ProfileScreen} />

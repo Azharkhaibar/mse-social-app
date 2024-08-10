@@ -5,7 +5,7 @@ import { FirstAds, StoriesIMG, PostOne, PostTwo, ImgScrollHome3, ImgScrollHome, 
 import { styles } from "./design/homestyle";
 import { useNavigation } from "@react-navigation/native";
 export const HomeScreen = () => {
-  const NavigationToSearchPage = useNavigation();
+  const NavigationToSubPage = useNavigation();
   const [activeButtonTouchableUser, setActiveButtonTouchableUser] = useState({
     like: false,
     comment: false,
@@ -20,7 +20,11 @@ export const HomeScreen = () => {
   };
 
   const HandleNavigateSearch = () => {
-    NavigationToSearchPage.navigate('Explore');
+    NavigationToSubPage.navigate('Explore');
+  }
+
+  const HandleNavigateMessages = () => {
+    NavigationToSubPage.navigate('Messages')
   }
 
   const renderPosts = (posts) =>
@@ -70,20 +74,13 @@ export const HomeScreen = () => {
         <View style={styles.header}>
           <Text style={styles.headerText}>Keezars</Text>
           <View style={styles.iconContainer}>
-            <Icon name="chat" size={25} color="white" />
+            <Icon name="chat" size={25} color="white" onPress={HandleNavigateMessages} />
             <Icon name="bell" size={25} color="white" />
             <Icon name="search" size={25} color="white" onPress={HandleNavigateSearch} />
           </View>
         </View>
 
-        <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={styles.containerStories}>
-          {StoriesIMG.map((story, index) => (
-            <View key={index} style={styles.storyItem}>
-              <Image source={story.IMGStories} style={styles.storiesImg} />
-              <Text style={styles.storyText}>{story.nameUserStories}</Text>
-            </View>
-          ))}
-        </ScrollView>
+        <StoriesImgApprove />
 
         <View style={styles.postsContainer}>
           {renderPostHeader(ImgScrollHome.imgScroll, "Azhar Khaibar", "3 Minutes ago")}
@@ -145,5 +142,18 @@ export const HomeScreen = () => {
         </View>
       </ScrollView>
     </SafeAreaView>
+  );
+};
+
+export const StoriesImgApprove = () => {
+  return (
+    <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={styles.containerStories}>
+      {StoriesIMG.map((story, index) => (
+        <View key={index} style={styles.storyItem}>
+          <Image source={story.IMGStories} style={styles.storiesImg} />
+          <Text style={styles.storyText}>{story.nameUserStories}</Text>
+        </View>
+      ))}
+    </ScrollView>
   );
 };
