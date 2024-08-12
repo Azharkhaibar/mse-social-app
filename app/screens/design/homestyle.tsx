@@ -3,7 +3,7 @@ export const styles = StyleSheet.create({
   container: {
     flex: 1,
     marginTop: 20,
-    backgroundColor: "#1C1C1C",
+    backgroundColor: "black",
   },
   scrollView: {
     flex: 1,

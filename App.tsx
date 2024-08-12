@@ -8,6 +8,8 @@ import { FirstPage } from './app/screens/firstpage';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { NavigationContainer } from '@react-navigation/native';
 import { ChatScreen } from './app/screens/chatscreen';
+import { TouchableOpacity } from 'react-native';
+import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 
 const Stack = createNativeStackNavigator();
 
@@ -27,7 +29,7 @@ export default function App() {
             headerShown: true,
             title: "Explore",
             headerStyle: {
-              backgroundColor: "#1C1C1C",
+              backgroundColor: "black",
             },
             headerTintColor: "white",
             headerTitleStyle: {
@@ -44,16 +46,22 @@ export default function App() {
             headerShown: true,
             title: "Chat",
             headerStyle: {
-              backgroundColor: "#1C1C1C",
+              backgroundColor: "black",
             },
             headerTintColor: "white",
             headerTitleStyle: {
               fontWeight: "bold",
               fontSize: 20,
             },
-            headerTitleAlign: 'left'
+            headerTitleAlign: "left",
+            headerRight: () => (
+              <TouchableOpacity onPress={() => console.log("Photo icon pressed")}>
+                <Icon name="camera-outline" size={25} color="white" style={{ marginRight: 15 }} />
+              </TouchableOpacity>
+            ),
           }}
         />
+
         <Stack.Screen name="Profile" component={ProfileScreen} />
       </Stack.Navigator>
     </NavigationContainer>
