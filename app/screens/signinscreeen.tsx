@@ -35,7 +35,7 @@ export const SignInScreen = () => {
 export const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#1C1C1C",
+    backgroundColor: "black",
     padding: 20,
     justifyContent: "center",
     alignItems: "center",
@@ -65,9 +65,12 @@ export const styles = StyleSheet.create({
     color: "white", // Mengatur warna teks input menjadi putih
   },
   button: {
+    marginTop: 20,
     backgroundColor: "black",
     padding: 15,
     borderRadius: 5,
+    borderColor: 'white',
+    borderWidth: 1,
     alignItems: "center",
     marginBottom: 10,
   },

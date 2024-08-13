@@ -27,6 +27,10 @@ export const HomeScreen = () => {
     NavigationToSubPage.navigate('Messages')
   }
 
+  const HandleNavigateIntoProfile = () => {
+    NavigationToSubPage.navigate('Profile')
+  }
+
   const renderPosts = (posts) =>
     posts.map((post, index) => (
       <View key={index} style={styles.postImageContainer}>
@@ -72,7 +76,7 @@ export const HomeScreen = () => {
     <SafeAreaView style={styles.container}>
       <ScrollView style={styles.scrollView}>
         <View style={styles.header}>
-          <Text style={styles.headerText}>Keezars</Text>
+          <Text style={styles.headerText} onPress={HandleNavigateIntoProfile}>Keezars</Text>
           <View style={styles.iconContainer}>
             <Icon name="chat" size={25} color="white" onPress={HandleNavigateMessages} />
             <Icon name="bell" size={25} color="white" />
