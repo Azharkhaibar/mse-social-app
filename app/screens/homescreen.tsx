@@ -105,7 +105,6 @@ export const HomeScreen = () => {
             </View>
             {renderActions()}
           </View>
-
           {renderPostHeader(ImgScrollHome2.imgScroll, "Adinda Safira", "3 Minutes ago")}
           <View style={styles.postContent}>
             <Text style={styles.postText}>s simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,</Text>

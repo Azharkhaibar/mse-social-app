@@ -1,6 +1,6 @@
 import React from "react";
 import { View, Text, StyleSheet, SafeAreaView, ScrollView, Image, TouchableOpacity } from "react-native";
-import { ProfileIMG } from "../data/profiledata";
+import { featuredPerson, ProfileIMG, PostDataProfile } from "../data/profiledata";
 import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 import { statsData } from "../data/profiledata";
 
@@ -110,12 +110,80 @@ export const ProfileScreen = () => {
             </View>
           </View>
 
-          <View style={{ marginTop: 20, backgroundColor: "#0E0220", width: '100%' }}>
-            <View style={{ flexDirection: "row", gap: 230, alignItems: 'center', justifyContent: 'center' }}>
-              <Text style={{ color: "white" }}>Featured</Text>
+          <View style={{ marginTop: 20, backgroundColor: "#0E0220", width: "100%" }}>
+            <View style={{ flexDirection: "row", gap: 230, alignItems: "center", justifyContent: "center" }}>
+              <Text style={{ color: "white", marginTop: 15 }}>Featured</Text>
               <Text style={{ color: "white" }}>View All</Text>
             </View>
+            <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={{ paddingHorizontal: 10 }}>
+              {featuredPerson.map((person, index) => (
+                <View
+                  key={index}
+                  style={{
+                    flexDirection: "column",
+                    alignItems: "center",
+                    marginHorizontal: 10,
+                    marginTop: 20,
+                  }}
+                >
+                  <Image
+                    source={person.img}
+                    style={{
+                      borderRadius: 50,
+                      width: 70,
+                      height: 70,
+                      marginBottom: 8,
+                    }}
+                  />
+                  <Text
+                    style={{
+                      fontSize: 14,
+                      fontWeight: "600",
+                      color: "white",
+                      textAlign: "center",
+                    }}
+                  >
+                    {person.namePerson}
+                  </Text>
+                </View>
+              ))}
+            </ScrollView>
           </View>
+
+          <View style={{ width: "100%", padding: 10, marginTop: 20 }}>
+            <Text style={{ color: 'white', fontSize: 24, fontWeight: 'bold', marginBottom: 10 }}>Post</Text>
+            <View style={{ flexDirection: "row", flexWrap: "wrap", justifyContent: "space-between" }}>
+              {PostDataProfile.map((post, index) => (
+                <View
+                  key={index}
+                  style={{
+                    width: "32%",
+                    marginBottom: 15,
+                    borderRadius: 10,
+                    overflow: "hidden",
+                    backgroundColor: "#2c2c2c", 
+                    elevation: 5, 
+                    shadowColor: "#000", 
+                    shadowOffset: { width: 0, height: 2 }, 
+                    shadowOpacity: 0.2, 
+                    shadowRadius: 4, 
+                  }}
+                >
+                  {post.imgData && (
+                    <Image
+                      source={post.imgData}
+                      style={{
+                        width: "100%",
+                        height: 150, 
+                        resizeMode: "cover",
+                      }}
+                    />
+                  )}
+                </View>
+              ))}
+            </View>
+          </View>
+
         </View>
       </ScrollView>
     </SafeAreaView>

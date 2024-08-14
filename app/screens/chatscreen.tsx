@@ -33,7 +33,6 @@ const pinnedChats = [
     message: "aku sayang kamu",
     avatar: require("../images/Stackpoto/cewe2.jpg"),
   },
-  // Tambahkan pinned chats lainnya jika diperlukan
 ];
 
 export const ChatScreen = () => {

@@ -3,7 +3,6 @@ import { View, Text, SafeAreaView, ScrollView, StyleSheet, TextInput, TouchableH
 import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 import { stackPhoto } from "../data/homedata";
 
-// Komponen Filter Button
 const BtnFilter = ({ text }) => {
   return (
     <TouchableHighlight
@@ -18,7 +17,6 @@ const BtnFilter = ({ text }) => {
   );
 };
 
-// Komponen StackPhotoExplore (Grid View)
 const StackPhotoExplore = () => {
   return (
     <View style={styles.photoGrid}>
