@@ -88,8 +88,8 @@ export const ChatScreen = () => {
           <Icon name="magnify" size={25} color="#bbb" style={ChatStyle.searchIcon} />
           <TextInput style={ChatStyle.searchInput} placeholder="Search..." placeholderTextColor="#bbb" selectionColor="#fff" value={searchNameSetQuery} onChangeText={handleSearchItemName} />
         </View>
-        <FlatList data={stories} horizontal renderItem={renderStoryItem} keyExtractor={(item) => item.id} contentContainerStyle={ChatStyle.storiesContainer} showsHorizontalScrollIndicator={false} />
 
+        <FlatList data={stories} horizontal renderItem={renderStoryItem} keyExtractor={(item) => item.id} contentContainerStyle={ChatStyle.storiesContainer} showsHorizontalScrollIndicator={false} />
         {filteredPinnedChatsNameItem.length > 0 && (
           <View style={ChatStyle.section}>
             <Text style={ChatStyle.sectionTitle}>Pinned Chats</Text>

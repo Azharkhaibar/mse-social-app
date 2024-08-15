@@ -12,6 +12,7 @@ import { ShopScreen } from './app/screens/shopscreen';
 import { FindPerson } from './app/screens/findperson';
 import { TouchableOpacity } from 'react-native';
 import Icon from "react-native-vector-icons/MaterialCommunityIcons";
+import { OtherPersonProfile } from './app/screens/otherpersonprofile';
 
 const Stack = createNativeStackNavigator();
 
@@ -88,6 +89,22 @@ export default function App() {
           options={{
             headerShown: true,
             title: "Find person",
+            headerStyle: {
+              backgroundColor: "black",
+            },
+            headerTintColor: "white",
+            headerTitleStyle: {
+              fontWeight: "bold",
+              fontSize: 20,
+            },
+          }}
+        />
+
+        <Stack.Screen
+          name="Profileperson"
+          component={OtherPersonProfile}
+          options={{
+            headerShown: true,
             headerStyle: {
               backgroundColor: "black",
             },
