@@ -84,3 +84,18 @@ export const PostDataProfile = [
     imgData: require("../images/user/cowo3.jpg"),
   },
 ];
+
+export const SavedDataProfile = [
+  {
+    id: 1,
+    imgSaved: require("../images/user/cewe baru2.jpg"),
+  },
+  {
+    id: 2,
+    imgSaved: require("../images/user/cewe baru2.jpg"),
+  },
+  {
+    id: 3,
+    imgSaved: require("../images/user/cewe baru2.jpg"),
+  },
+];

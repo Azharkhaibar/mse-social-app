@@ -1,10 +1,77 @@
-import React from "react";
+import React, { useState } from "react";
 import { View, Text, StyleSheet, SafeAreaView, ScrollView, Image, TouchableOpacity } from "react-native";
-import { featuredPerson, ProfileIMG, PostDataProfile } from "../data/profiledata";
+import { featuredPerson, ProfileIMG, PostDataProfile, SavedDataProfile } from "../data/profiledata";
 import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 import { statsData } from "../data/profiledata";
+import { useNavigation } from "@react-navigation/native";
 
 export const ProfileScreen = () => {
+  const [ openTabActive, setOpenTabActive ] = useState('post');
+  const NavigateToSubPage = useNavigation()
+  const HandlerNavigate = () => {
+    NavigateToSubPage.navigate('Findperson')
+  }
+  const RenderContent = () => {
+      if (openTabActive === "Post") {
+        return PostDataProfile.map((post, index) => (
+          <View
+            key={index}
+            style={{
+              width: "32%",
+              marginBottom: 15,
+              borderRadius: 10,
+              overflow: "hidden",
+              backgroundColor: "#2c2c2c",
+              elevation: 5,
+              shadowColor: "#000",
+              shadowOffset: { width: 0, height: 2 },
+              shadowOpacity: 0.2,
+              shadowRadius: 4,
+            }}
+          >
+            {post.imgData && (
+              <Image
+                source={post.imgData}
+                style={{
+                  width: "100%",
+                  height: 150,
+                  resizeMode: "cover",
+                }}
+              />
+            )}
+          </View>
+        ));
+      } else if (openTabActive === "Saved") {
+        return SavedDataProfile.map((saved, index) => (
+          <View
+            key={index}
+            style={{
+              width: "32%",
+              marginBottom: 15,
+              borderRadius: 10,
+              overflow: "hidden",
+              backgroundColor: "#2c2c2c",
+              elevation: 5,
+              shadowColor: "#000",
+              shadowOffset: { width: 0, height: 2 },
+              shadowOpacity: 0.2,
+              shadowRadius: 4,
+            }}
+          >
+            {saved.imgSaved && (
+              <Image
+                source={saved.imgSaved}
+                style={{
+                  width: "100%",
+                  height: 150,
+                  resizeMode: "cover",
+                }}
+              />
+            )}
+          </View>
+        ));
+      }
+  };
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView contentContainerStyle={styles.scrollViewContent}>
@@ -110,10 +177,12 @@ export const ProfileScreen = () => {
             </View>
           </View>
 
-          <View style={{ marginTop: 20, backgroundColor: "#0E0220", width: "100%" }}>
+          <View style={{ marginTop: 12, backgroundColor: "#0E0220", width: "100%" }}>
             <View style={{ flexDirection: "row", gap: 230, alignItems: "center", justifyContent: "center" }}>
               <Text style={{ color: "white", marginTop: 15 }}>Featured</Text>
-              <Text style={{ color: "white" }}>View All</Text>
+              <TouchableOpacity onPress={HandlerNavigate}>
+                <Text style={{ color: "white" }}>View All</Text>
+              </TouchableOpacity>
             </View>
             <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={{ paddingHorizontal: 10 }}>
               {featuredPerson.map((person, index) => (
@@ -130,8 +199,8 @@ export const ProfileScreen = () => {
                     source={person.img}
                     style={{
                       borderRadius: 50,
-                      width: 70,
-                      height: 70,
+                      width: 65,
+                      height: 65,
                       marginBottom: 8,
                     }}
                   />
@@ -151,39 +220,39 @@ export const ProfileScreen = () => {
           </View>
 
           <View style={{ width: "100%", padding: 10, marginTop: 20 }}>
-            <Text style={{ color: 'white', fontSize: 24, fontWeight: 'bold', marginBottom: 10 }}>Post</Text>
-            <View style={{ flexDirection: "row", flexWrap: "wrap", justifyContent: "space-between" }}>
-              {PostDataProfile.map((post, index) => (
-                <View
-                  key={index}
+            {/* Tab Navigation */}
+            <View style={{ flexDirection: "row", justifyContent: "center", gap: 80 }}>
+              <TouchableOpacity onPress={() => setOpenTabActive("Post")}>
+                <Text
                   style={{
-                    width: "32%",
-                    marginBottom: 15,
-                    borderRadius: 10,
-                    overflow: "hidden",
-                    backgroundColor: "#2c2c2c", 
-                    elevation: 5, 
-                    shadowColor: "#000", 
-                    shadowOffset: { width: 0, height: 2 }, 
-                    shadowOpacity: 0.2, 
-                    shadowRadius: 4, 
+                    color: openTabActive === "Post" ? "white" : "gray",
+                    fontSize: 18,
+                    fontWeight: "bold",
+                    marginBottom: 10,
+                    borderBottomWidth: openTabActive === "Post" ? 2 : 0,
+                    borderBottomColor: "white",
                   }}
                 >
-                  {post.imgData && (
-                    <Image
-                      source={post.imgData}
-                      style={{
-                        width: "100%",
-                        height: 150, 
-                        resizeMode: "cover",
-                      }}
-                    />
-                  )}
-                </View>
-              ))}
+                  Post
+                </Text>
+              </TouchableOpacity>
+              <TouchableOpacity onPress={() => setOpenTabActive("Saved")}>
+                <Text
+                  style={{
+                    color: openTabActive === "Saved" ? "white" : "gray",
+                    fontSize: 18,
+                    fontWeight: "bold",
+                    marginBottom: 10,
+                    borderBottomWidth: openTabActive === "Saved" ? 2 : 0,
+                    borderBottomColor: "white",
+                  }}
+                >
+                  Saved
+                </Text>
+              </TouchableOpacity>
             </View>
+            <View style={{ flexDirection: "row", flexWrap: "wrap", justifyContent: "space-between", marginTop: 20 }}>{RenderContent()}</View>
           </View>
-
         </View>
       </ScrollView>
     </SafeAreaView>

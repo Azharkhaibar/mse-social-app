@@ -9,6 +9,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { NavigationContainer } from '@react-navigation/native';
 import { ChatScreen } from './app/screens/chatscreen';
 import { ShopScreen } from './app/screens/shopscreen';
+import { FindPerson } from './app/screens/findperson';
 import { TouchableOpacity } from 'react-native';
 import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 
@@ -80,7 +81,23 @@ export default function App() {
           }}
         />
 
-        <Stack.Screen name='Shop' component={ShopScreen} />
+        <Stack.Screen name="Shop" component={ShopScreen} />
+        <Stack.Screen
+          name="Findperson"
+          component={FindPerson}
+          options={{
+            headerShown: true,
+            title: "Find person",
+            headerStyle: {
+              backgroundColor: "black",
+            },
+            headerTintColor: "white",
+            headerTitleStyle: {
+              fontWeight: "bold",
+              fontSize: 20,
+            },
+          }}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );
