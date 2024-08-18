@@ -19,7 +19,6 @@ export const ProfileScreen = () => {
             style={{
               width: "32%",
               marginBottom: 15,
-              borderRadius: 10,
               overflow: "hidden",
               backgroundColor: "#2c2c2c",
               elevation: 5,
@@ -48,7 +47,6 @@ export const ProfileScreen = () => {
             style={{
               width: "32%",
               marginBottom: 15,
-              borderRadius: 10,
               overflow: "hidden",
               backgroundColor: "#2c2c2c",
               elevation: 5,
